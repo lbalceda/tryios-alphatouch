@@ -39,4 +39,9 @@
     NSLog(@"Started touching the screen");
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"Touch Ended");
+}
+
 @end
