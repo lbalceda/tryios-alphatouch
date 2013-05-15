@@ -19,6 +19,16 @@
     [super viewDidLoad];
     NSLog(@"Setting bg color");
     self.view.backgroundColor = [UIColor yellowColor];
+    
+    UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    firstButton.frame = CGRectMake(100, 100, 100, 44);
+    [firstButton setTitle:@"Click me!" forState:UIControlStateNormal];
+    [self.view addSubview:firstButton];
+    
+    UILabel *firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(50,30,200,44)];
+    firstLabel.backgroundColor = [UIColor clearColor];
+    firstLabel.text = @"Hello, welcome to my app!";
+    [self.view addSubview:firstLabel];
 }
 
 - (void)didReceiveMemoryWarning
