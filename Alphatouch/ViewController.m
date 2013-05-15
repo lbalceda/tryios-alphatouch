@@ -22,7 +22,8 @@
     
     UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     firstButton.frame = CGRectMake(100, 100, 100, 44);
-    [firstButton setTitle:@"Click me!" forState:UIControlStateNormal];
+    [firstButton setTitle:@"Tap me!" forState:UIControlStateNormal];
+    [firstButton setTitle:@"Ouch!" forState:UIControlStateHighlighted];
     [self.view addSubview:firstButton];
     
     UILabel *firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(50,30,200,44)];
