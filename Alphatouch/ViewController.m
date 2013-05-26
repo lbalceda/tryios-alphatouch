@@ -8,38 +8,33 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
-
-@end
-
-#import "ViewController.h"
-
 @implementation ViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    UIButton *greenButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    greenButton.frame = CGRectMake(120, 200, 100, 44);
-    [greenButton setTitle:@"Make green!" forState:UIControlStateNormal];
-    [greenButton addTarget:self action:@selector(changeBackgroundColor:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:greenButton];
+    self.greenButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.greenButton.frame = CGRectMake(120, 200, 100, 44);
+    [self.greenButton setTitle:@"Make green!" forState:UIControlStateNormal];
+    [self.greenButton addTarget:self action:@selector(changeBackgroundColor:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.greenButton];
     
-    UIButton *blueButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    blueButton.frame = CGRectMake(120, 100, 100, 44);
-    [blueButton setTitle:@"Make blue!" forState:UIControlStateNormal];
-    [blueButton addTarget:self action:@selector(changeBackgroundColor:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:blueButton];
+    self.blueButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.blueButton.frame = CGRectMake(120, 100, 100, 44);
+    [self.blueButton setTitle:@"Make blue!" forState:UIControlStateNormal];
+    [self.blueButton addTarget:self action:@selector(changeBackgroundColor:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.blueButton];
 }
 
 - (void) changeBackgroundColor:(UIButton *) sender
 {
-    if ([sender.titleLabel.text isEqualToString:@"Make green!"]){
+    if ([sender isEqual:self.greenButton]) {
         self.view.backgroundColor = [UIColor greenColor];
-    } else {
+    }else {
         self.view.backgroundColor = [UIColor blueColor];
     }
 }
 @end
+
 
