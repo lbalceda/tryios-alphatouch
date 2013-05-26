@@ -467,6 +467,7 @@
 				A0F92BD91742CC6100D38261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0F92BDA1742CC6100D38261 /* Build configuration list for PBXNativeTarget "AlphatouchTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +476,7 @@
 				A0F92BDC1742CC6100D38261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

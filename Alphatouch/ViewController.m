@@ -22,9 +22,17 @@
     
     UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     firstButton.frame = CGRectMake(100, 100, 100, 44);
-    [firstButton setTitle:@"Tap me!" forState:UIControlStateNormal];
-    [firstButton setTitle:@"Ouch!" forState:UIControlStateHighlighted];
+    [firstButton setTitle:@"Make 50%" forState:UIControlStateNormal];
     [self.view addSubview:firstButton];
+  
+    [firstButton addTarget:self action:@selector(buttonPreseed:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    secondButton.frame = CGRectMake(100, 300, 100, 44);
+    [secondButton setTitle:@"Make 100%" forState:UIControlStateNormal];
+    [self.view addSubview:secondButton];
+
+    [secondButton addTarget:self action:@selector(buttonPreseed:) forControlEvents:UIControlEventTouchUpInside];
     
     UILabel *firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(50,30,200,44)];
     firstLabel.backgroundColor = [UIColor clearColor];
@@ -36,6 +44,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) buttonPreseed:(UIButton *) sender
+{
+    NSLog(@"Button pressed, sender :%@", sender);
+    
+    if ([sender.titleLabel.text isEqualToString:@"Make 50%"])
+    {
+        self.view.alpha = .5;
+    } else {
+        self.view.alpha = 1;
+    }
 }
 
 - (void)loadView
