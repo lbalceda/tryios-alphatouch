@@ -12,67 +12,34 @@
 
 @end
 
+#import "ViewController.h"
+
 @implementation ViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"Setting bg color");
-    self.view.backgroundColor = [UIColor yellowColor];
     
-    UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    firstButton.frame = CGRectMake(100, 100, 100, 44);
-    [firstButton setTitle:@"Make 50%" forState:UIControlStateNormal];
-    [self.view addSubview:firstButton];
-  
-    [firstButton addTarget:self action:@selector(buttonPreseed:) forControlEvents:UIControlEventTouchUpInside];
-
-    UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    secondButton.frame = CGRectMake(100, 300, 100, 44);
-    [secondButton setTitle:@"Make 100%" forState:UIControlStateNormal];
-    [self.view addSubview:secondButton];
-
-    [secondButton addTarget:self action:@selector(buttonPreseed:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *greenButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    greenButton.frame = CGRectMake(120, 200, 100, 44);
+    [greenButton setTitle:@"Make green!" forState:UIControlStateNormal];
+    [greenButton addTarget:self action:@selector(changeBackgroundColor:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:greenButton];
     
-    UILabel *firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(50,30,200,44)];
-    firstLabel.backgroundColor = [UIColor clearColor];
-    firstLabel.text = @"Hello, welcome to my app!";
-    [self.view addSubview:firstLabel];
+    UIButton *blueButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    blueButton.frame = CGRectMake(120, 100, 100, 44);
+    [blueButton setTitle:@"Make blue!" forState:UIControlStateNormal];
+    [blueButton addTarget:self action:@selector(changeBackgroundColor:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:blueButton];
 }
 
-- (void)didReceiveMemoryWarning
+- (void) changeBackgroundColor:(UIButton *) sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void) buttonPreseed:(UIButton *) sender
-{
-    NSLog(@"Button pressed, sender :%@", sender);
-    
-    if ([sender.titleLabel.text isEqualToString:@"Make 50%"])
-    {
-        self.view.alpha = .5;
+    if ([sender.titleLabel.text isEqualToString:@"Make green!"]){
+        self.view.backgroundColor = [UIColor greenColor];
     } else {
-        self.view.alpha = 1;
+        self.view.backgroundColor = [UIColor blueColor];
     }
 }
-
-- (void)loadView
-{
-    CGRect viewRect = [[UIScreen mainScreen] bounds];
-    UIView *view = [[UIView alloc] initWithFrame:viewRect];
-    self.view = view;
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"Started touching the screen");
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"Touch Ended");
-}
-
 @end
+
